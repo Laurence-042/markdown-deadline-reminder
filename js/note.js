@@ -33,11 +33,15 @@ let demo = new Vue({
             if (this.ddl == -1) {
                 prefix += "# No ddl! \n";
             } else if (this.ddl - today <= 2) {
-                if (this.ddl - today < 0 && this.ddl - today >= -10) {
-                    prefix += "# Next month \n";
-                } else {
+                if (this.ddl - today >= 0) {
                     prefix += "# " + (this.ddl - today) + " days \n";
                     prefix += "# Warning, ddl in 2 days \n";
+                }
+                else if (this.ddl - today >= -10) {
+                    prefix += "# Did you miss it? \n";
+
+                } else {
+                    prefix += "# Next month \n";
                 }
             } else {
                 prefix += "# " + (this.ddl - today) + " days \n";
