@@ -1,0 +1,29 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Note MD</title>
+    <link rel="stylesheet" href="css/note.css" />
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="demo">
+        <textarea v-if="edit_mod" v-model="raw_markdown" id="editor"></textarea>
+        <div v-else id="content" @click="on_click_content" v-html='parsed_markdown' :class="{'text-danger':danger}">
+        </div>
+        <div v-if="edit_mod" class="conrol-pane">
+            <img class="button uk-card-body uk-margin-left" @click="on_click_save" src="Images/save.png"></img>
+            <img class="button uk-card-body uk-margin-left" @click="on_click_discard" src="Images/discard.png"></img>
+        </div>
+    </div>
+
+    <script src="js/note.js"></script>
+</body>
+
+</html>
