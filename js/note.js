@@ -17,6 +17,19 @@ let demo = new Vue({
         this.get_saved();
         this.check_danger();
         this.parse_markdown();
+    }, 
+    watch: {
+        raw_markdown: function (newMarkdown, oldMarkdown) {
+            let lastChar = newMarkdown.charAt(newMarkdown.length-1);
+            if(lastChar!="\n"){
+                return;
+            }
+            let lineEndBeforeLastLine = oldMarkdown.lastIndexOf("\n")
+            let lastLine = oldMarkdown.substr(lineEndBeforeLastLine+1);
+            let re = /^\s*/g;
+            let spaceNum = lastLine.match(re)[0].length;
+            this.raw_markdown+= " ".repeat(spaceNum);
+        }
     },
     methods: {
         get_saved() {
