@@ -10,30 +10,15 @@ let demo = new Vue({
         edit_mod: false,
         danger: false,
         ddl: 0,
-        url: ''
+        url: '',
+
+        edit_trigger: true
     },
     mounted() {
         this.url = 'md-note://' + window.location.pathname;
         this.get_saved();
         this.check_danger();
         this.parse_markdown();
-    }, 
-    watch: {
-        raw_markdown: function (newMarkdown, oldMarkdown) {
-            let lastChar = newMarkdown.charAt(newMarkdown.length-1);
-            if(lastChar!="\n"){
-                return;
-            }
-            let lineEndBeforeLastLine = oldMarkdown.lastIndexOf("\n")
-            let lastLine = oldMarkdown.substr(lineEndBeforeLastLine+1);
-            let re = /^\s*/g;
-            let spaceNum = lastLine.match(re)[0].length;
-            this.raw_markdown+= " ".repeat(spaceNum);
-            re = /^\s*- /g;
-            if(lastLine.match(re)!=null){
-                this.raw_markdown+= "- ";
-            }
-        }
     },
     methods: {
         get_saved() {
