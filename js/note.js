@@ -29,6 +29,10 @@ let demo = new Vue({
             let re = /^\s*/g;
             let spaceNum = lastLine.match(re)[0].length;
             this.raw_markdown+= " ".repeat(spaceNum);
+            re = /^\s*- /g;
+            if(lastLine.match(re)!=null){
+                this.raw_markdown+= "- ";
+            }
         }
     },
     methods: {
