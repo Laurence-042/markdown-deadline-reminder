@@ -1,3 +1,5 @@
+本项目使用了[marked](https://github.com/markedjs/marked)项目来解析markdown
+
 - 这个东西是什么？
 
   - 就是一个支持markdown并自动在开头添加deadline提醒信息的备忘录
