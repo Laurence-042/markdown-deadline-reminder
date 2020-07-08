@@ -13,13 +13,17 @@
 <body>
 
     <div id="demo">
-        <textarea v-if="edit_mod" v-model="raw_markdown" id="editor"></textarea>
-        <div v-else id="content" @click="on_click_content" v-html='final_markdown' :class="{'text-danger':danger}">
+        <div v-if="edit_mod" class="content">
+            <textarea v-if="edit_mod" v-model="raw_markdown" class="editor"></textarea>
+            <div class="conrol-pane">
+                <button @click="on_click_save">save</button>
+                <button @click="on_click_discard">discard</button>
+            </div>
         </div>
-        <div v-if="edit_mod" class="conrol-pane">
-            <button @click="on_click_save">save</button>
-            <button @click="on_click_discard">discard</button>
+
+        <div v-else class="content" @click="on_click_content" v-html='final_markdown' :class="{'text-danger':danger}">
         </div>
+
     </div>
 
     <script src="js/note.js"></script>

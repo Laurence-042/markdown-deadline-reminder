@@ -34,13 +34,14 @@ img {
     max-height: 100%;
 }
 
-#content {
+.content {
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
 }
 
-#editor {
+.editor {
     resize: none;
     height: 85%;
     width: 100%;
