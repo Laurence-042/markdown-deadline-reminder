@@ -88,7 +88,7 @@ let demo = new Vue({
             let prefix = "<h1>Deadline: ";
             if (first_ddl.getTime() == new Date(0).getTime()) {
                 prefix += "No ddl!</h1>";
-            } else if (first_ddl - today <= 86400000) {
+            } else if (first_ddl - today <= (2* 24 * 3600 * 1000)) {
                 if (first_ddl - today >= 0) {
                     let totalMiliSecond = first_ddl.getTime() - today.getTime();
                     let days = Math.floor(totalMiliSecond / (24 * 3600 * 1000));
